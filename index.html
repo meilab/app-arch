@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>FreshSupplyChain</title>
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/default.css" rel="stylesheet" />
+    <link href="css/highlight.css" rel="stylesheet" />
+</head>
+<body class="impress-not-supported">
+<div class="fallback-message">
+   impress.js is not supported by your browser, sorry.
+</div>
+
+<div id="impress">
+<section id="系统选型" class="level1 step" data-rotate="20" data-x="-1000" data-y="200" data-scale="1">
+<h1>系统选型</h1>
+<ul>
+<li>编程语言选择</li>
+<li>编程框架选择</li>
+<li>数据库选择</li>
+</ul>
+</section>
+<section id="语言特性" class="level1 step" data-rotate="20" data-x="-1000" data-y="200" data-z="100" data-scale="2">
+<h1>语言特性</h1>
+<ul>
+<li>变量定义</li>
+<li>算术运算</li>
+<li>控制语句</li>
+<li>函数定义，函数调用</li>
+<li>递归</li>
+<li>面向对象</li>
+<li>垃圾回收</li>
+<li>静态类型系统</li>
+</ul>
+</section>
+<section id="框架特性" class="level1 step" data-rotate="20" data-x="-1000" data-y="200" data-z="400" data-scale="4">
+<h1>框架特性</h1>
+<ul>
+<li>Web server</li>
+<li>ORM</li>
+<li>REST API</li>
+<li>用户认证</li>
+<li>状态管理</li>
+<li>路由管理</li>
+<li>DOM渲染</li>
+</ul>
+</section>
+<section id="系统架构" class="level1 step">
+<h1>系统架构</h1>
+<p>服务器开发</p>
+<ul>
+<li>Python</li>
+<li>Django</li>
+<li>PostgreSQL</li>
+</ul>
+<p>App开发</p>
+<ul>
+<li>Apicloud</li>
+<li>Vue</li>
+</ul>
+</section>
+<section id="why-python" class="level1 step" data-x="2000">
+<h1>Why <strong>Python</strong></h1>
+<ul>
+<li>代码量小</li>
+<li>编程效率高</li>
+<li>维护成本低</li>
+<li>众多标准库支持</li>
+</ul>
+</section>
+<section id="why-django" class="level1 step" data-rotate="20" data-x="0" data-y="2000" data-scale="3">
+<h1>Why <strong>Django</strong></h1>
+<p>后端主要需求</p>
+<ul>
+<li>数据库读写</li>
+<li>REST API</li>
+<li>用户认证</li>
+</ul>
+<p>Django</p>
+<ul>
+<li>ORM的完善支持</li>
+<li>灵活的URL映射</li>
+<li>成熟的Auth和Session模块</li>
+</ul>
+</section>
+<section id="性能优化" class="level1 step" data-y="2200" data-x="-600" data-rotate="20">
+<h1>性能优化</h1>
+<p>Redis &lt;-&gt; DB</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1">CACHES = {</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">    &quot;default&quot;: {</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">        &quot;BACKEND&quot;: &quot;django_redis.cache.RedisCache&quot;,</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">        &quot;LOCATION&quot;: &quot;redis://127.0.0.1:6379/1&quot;,</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">        &quot;OPTIONS&quot;: {</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">            &quot;CLIENT_CLASS&quot;: &quot;django_redis.client.DefaultClient&quot;</a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">        },</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">        &quot;KEY_PREFIX&quot;: &quot;cloudbox&quot;</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9">    }</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10">}</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">CACHE_TTL = 60</a></code></pre></div>
+</section>
+<section id="开发流程" class="level1 step" data-y="2500" data-x="400" data-rotate="20">
+<h1>开发流程</h1>
+<ul>
+<li>线上服务器</li>
+<li>开发服务器</li>
+<li>测试服务器</li>
+</ul>
+</section>
+<section id="部署" class="level1 step" data-y="1000" data-x="6000" data-scale="4">
+<h1>部署</h1>
+<p>Supervisor</p>
+<ul>
+<li>supervisord.conf</li>
+</ul>
+<pre><code>[program:cloudbox]
+command=python manage.py runserver 0.0.0.0:8000
+directory=/opt/cloudbox/backend
+autostart=true
+stopasgroup=true
+stopwaitsecs=10
+redirect_stderr=true
+stdout_logfile=/opt/supervisor/cloudbox.log</code></pre>
+</section>
+<section id="why-apicloud" class="level1 step" data-y="1500" data-x="5000">
+<h1>Why <strong>ApiCloud</strong></h1>
+<ul>
+<li>快速MVP</li>
+<li>国内本土化模块:baidu地图，微信等</li>
+</ul>
+</section>
+<section id="why-vue" class="level1 step" data-y="1500" data-x="6000">
+<h1>Why <strong>Vue</strong></h1>
+<ul>
+<li>数据驱动</li>
+<li>模块化</li>
+<li>简单</li>
+</ul>
+</section>
+<section id="页面跳转" class="level1 step" data-y="1500" data-x="7000">
+<h1>页面跳转</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;span</span> <span class="er">@click</span><span class="ot">=</span><span class="st">&quot;scanAction(item)&quot;</span><span class="ot"> v-if=</span><span class="st">&quot;userRole == 1&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  扫码用箱</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">&lt;/span&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">scanAction<span class="op">:</span> <span class="kw">function</span> <span class="at">scanAction</span>(item) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="va">api</span>.<span class="at">openWin</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">      <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;scan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">      <span class="dt">url</span><span class="op">:</span> <span class="st">&quot;../../../html/operator/scan.html&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">      <span class="dt">pageParam</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">        <span class="dt">appointmentOrder</span><span class="op">:</span> item</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9"><span class="op">}</span></a></code></pre></div>
+</section>
+<section id="页面跳转2" class="level1 step" data-y="1900" data-x="5000">
+<h1>页面跳转2</h1>
+<p>target page: init function</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" data-line-number="1">data <span class="op">=</span> <span class="va">api</span>.<span class="va">pageParam</span>.<span class="va">appointmentOrder</span>.<span class="at">data</span></a></code></pre></div>
+</section>
+<section id="页面构成" class="level1 step" data-y="-2000" data-x="4000" data-scale="4">
+<h1>页面构成</h1>
+<ul>
+<li>html template</li>
+<li>js</li>
+<li>css</li>
+</ul>
+</section>
+<section id="js-file" class="level1 step" data-y="-1500" data-x="3000">
+<h1>JS file</h1>
+<ul>
+<li>data</li>
+<li>mounted</li>
+<li>methods
+<ul>
+<li>init</li>
+<li>close</li>
+<li>listener</li>
+</ul></li>
+</ul>
+</section>
+<section id="mounted" class="level1 step" data-y="-1500" data-x="4000">
+<h1>mounted</h1>
+<pre><code>mounted: function mounted() {
+    window.apiready = function () {
+        $api.fixStatusBar($api.byId(&quot;header&quot;));
+        this.init();
+    };
+}</code></pre>
+</section>
+<section id="init" class="level1 step" data-y="-1500" data-x="5000">
+<h1>init</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" data-line-number="1">init<span class="op">:</span> <span class="kw">function</span> <span class="at">init</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    <span class="kw">this</span>.<span class="at">listener</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="kw">this</span>.<span class="at">goods_order_id</span> <span class="op">=</span> <span class="va">api</span>.<span class="va">pageParam</span>.<span class="at">goods_order_id</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="kw">this</span>.<span class="at">loadDatas</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="op">}</span></a></code></pre></div>
+</section>
+<section id="公共服务" class="level1 step" data-y="-1500" data-x="6000">
+<h1>公共服务 :</h1>
+<ul>
+<li>REST API</li>
+<li>MAP service</li>
+</ul>
+</section>
+<section id="api-cloud组件" class="level1 step" data-y="-1500" data-x="-1000">
+<h1>API Cloud组件</h1>
+<ul>
+<li>百度地图</li>
+<li>蓝牙打印机</li>
+<li>极光推送</li>
+<li>二维码扫码</li>
+</ul>
+</section>
+</div>
+
+<script src="js/hightlight.pack.js"></script>
+<script src="js/impress.js"></script>
+
+<script>impress().init();</script>
+</body>
+</html>
