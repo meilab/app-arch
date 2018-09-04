@@ -142,9 +142,11 @@ stdout_logfile=/opt/supervisor/cloudbox.log</code></pre>
 </section>
 <section id="页面跳转" class="level1 step" data-y="1500" data-x="7000">
 <h1>页面跳转</h1>
+<p>Html</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;span</span> <span class="er">@click</span><span class="ot">=</span><span class="st">&quot;scanAction(item)&quot;</span><span class="ot"> v-if=</span><span class="st">&quot;userRole == 1&quot;</span><span class="kw">&gt;</span></a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">  扫码用箱</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">&lt;/span&gt;</span></a></code></pre></div>
+<p>JavaScript</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" data-line-number="1">scanAction<span class="op">:</span> <span class="kw">function</span> <span class="at">scanAction</span>(item) <span class="op">{</span></a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="va">api</span>.<span class="at">openWin</span>(<span class="op">{</span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">      <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;scan&quot;</span><span class="op">,</span></a>
